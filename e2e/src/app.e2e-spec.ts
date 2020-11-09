@@ -1,16 +1,11 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, element, logging } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
 
+describe('Covid-19 Tracker Application', ()=> {
+  
   beforeEach(() => {
-    page = new AppPage();
-  });
-
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Covid-Tracker-Application app is running!');
+    browser.get('http://localhost:4200/');
   });
 
   afterEach(async () => {
@@ -20,4 +15,30 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+
+it('should allow me to click the Confirmed radio button', () =>{
+  var confirmed = element(by.xpath(("//label[contains(text(),'Confirmed')]")));
+  confirmed.click();
+  browser.sleep(2000);
 });
+
+it('should allow me to click the Deaths radio button', () =>{
+  var deaths = element(by.xpath(("//label[contains(text(),'Deaths')]")));
+  deaths.click();
+  browser.sleep(2000);
+});
+
+it('should allow me to click the Recovered radio button', () =>{
+  var recovered = element(by.xpath(("//label[contains(text(),'Recovered')]")));
+  recovered.click();
+  browser.sleep(2000);
+});
+
+it('should allow me to click the Active radio button', () =>{
+  var active = element(by.xpath(("//label[contains(text(),'Active')]")));
+  active.click();
+  browser.sleep(2000);
+});
+
+});
+

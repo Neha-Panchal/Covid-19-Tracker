@@ -8,6 +8,7 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  
     totalConfirmed = 0;
     totalActive = 0;
     totalDeaths = 0;

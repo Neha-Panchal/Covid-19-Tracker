@@ -14,15 +14,19 @@ exports.config = {
   ],
   capabilities: {
     browserName: 'chrome'
-  },
+ 
+ },
+ 
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
+  //seleniumAddress: 'http://localhost:4444/wd/hub',
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
+  
   onPrepare() {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
@@ -32,5 +36,7 @@ exports.config = {
         displayStacktrace: StacktraceOption.PRETTY
       }
     }));
+ 
   }
+
 };
