@@ -1,10 +1,16 @@
-FROM node:14.15.0
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
-RUN npm cache clean
-RUN npm install
-COPY . /usr/src/app
-ENV PORT=8080
-EXPOSE 4200
-CMD ["npm","start"]
+FROM node
+
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get clean
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY package.json /app/
+RUN npm install --only=production
+
+COPY src /app/src
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
